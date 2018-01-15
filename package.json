@@ -1,0 +1,24 @@
+{
+  "name": "simple-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nightwatch.conf.js",
+  "scripts": {
+    "e2e": "nightwatch",
+    "e2e:chrome": "npm run e2e -- --env chrome",
+    "e2e:firefox": "npm run e2e -- --env firefox",
+    "debug": "node --inspect-brk node_modules/.bin/nightwatch --env chrome"
+  },
+  "author": "Igor Mucsicska <mucsi_96@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chromedriver": "^2.32.3",
+    "cucumber": "^3.0.3",
+    "cucumber-pretty": "^0.0.5",
+    "geckodriver": "^1.10.0",
+    "nightwatch": "^0.9.16",
+    "nightwatch-cucumber": "^8.2.9",
+    "phantomjs-prebuilt": "^2.1.16",
+    "selenium-server": "^3.7.1"
+  }
+}
