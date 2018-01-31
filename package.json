@@ -7,9 +7,12 @@
     "e2e": "nightwatch",
     "e2e:chrome": "npm run e2e -- --env chrome",
     "e2e:firefox": "npm run e2e -- --env firefox",
-    "debug": "node --inspect-brk node_modules/.bin/nightwatch --env chrome"
+    "debug": "node --inspect-brk node_modules/.bin/nightwatch --env chrome",
+    "test": "nightwatch --tag test",
+    "smoketest": "nightwatch --group smoketest",
+    "public-pages": "nightwatch --group public_pages"
   },
-  "author": "Igor Mucsicska <mucsi_96@yahoo.com>",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "chromedriver": "^2.32.3",

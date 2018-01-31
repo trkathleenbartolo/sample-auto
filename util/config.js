@@ -1,3 +1,3 @@
 module.exports = {
-  APP_URL: "http://localhost:8080",
+  APP_URL: "http://dev.tech-direct.com"
 };
