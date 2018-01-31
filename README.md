@@ -1,13 +1,26 @@
 ## Installation
 ```
+First create a Development folder:
+mkdir /Development
+
+Clone this repository, then install npm:
 npm i
 ```
 
-## Run
+## Running feature files
 ```
+To run all feature files:
 npm run e2e
+
+To run all feature files in a specific browser:
+
+For Chrome:
 npm run e2e:chrome
+
+For Firefox:
 npm run e2e:firefox
+
+To run one or several specific feature files, update package.json file.
 ```
 
 ## Documentation
