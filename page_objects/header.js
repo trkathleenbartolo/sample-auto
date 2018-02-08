@@ -1,7 +1,45 @@
 module.exports = {
     url: "/",
     commands: [
-        checkElements
+       {
+        getXpath: (elementName) => {
+            let elements = {
+                xpath: ''
+            }
+            switch(elementName) {
+                case('Header'):
+                case('Header container'):
+                elements.xpath = '@headerCont';
+                break;
+
+                case('TechDirect logo'):
+                elements.xpath = '@techDirectLogo';
+                break;
+
+                case('About Us link'):
+                case('About Us'):
+                elements.xpath = '@aboutUsLink';
+                break;
+
+                case('How It Works link'):
+                case('How It Works'):
+                elements.xpath = '@howItWorksLink';
+                break;
+
+                case('Contact Us link'):
+                case('Contact Us'):
+                elements.xpath = '@contactUsLink';
+                break;
+
+                case('Log In button'):
+                case('Log In'):
+                case('Login'):
+                elements.xpath = '@loginBtn';
+                break;
+            }
+            return elements.xpath;
+        }
+       }
     ],
     elements: {
         headerCont: {
@@ -23,21 +61,10 @@ module.exports = {
         contactUsLink: {
             selector: "//*[@class='navbar-start']//*[@href='/contact-us']",
             locateStrategy: 'xpath'
-        }
+        },
+        loginBtn: {
+            selector: ".//*[@id='app']//a[@name='login']",
+            locateStrategy: 'xpath'
+        },
     }
 }
-
-var checkElements = {
-    isElementVisible: function(elementName) {
-        let elements = {
-            xpath
-        }
-        switch(elementName) {
-            case('Header'):
-            case('Header container'):
-            xpath = '@headerCont';
-            break;
-        }
-        return this.assert.visible(xpath);
-    }
-};

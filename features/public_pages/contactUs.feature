@@ -4,7 +4,6 @@ Feature: Public Pages - Contact Us
         Given I am navigated to any TechDirect Public page
         And I clicked on Contact Us link on Header
 
-    @test
     Scenario: Elements on Contact Us page should be displayed correctly
         Given I am navigated to the TechDirect Contact Us page {td.contact.us.path}
         Then Contact Us page should be displayed correctly
@@ -22,6 +21,7 @@ Feature: Public Pages - Contact Us
             | GooglePlus icon |
             | Twitter icon    |
 
+    @smoketest
     Scenario Outline: Sending of Contact Us form should proceed when all fields are filled up with correct values and passed the captcha validation
         Given I am navigated to the TechDirect Contact Us page {td.contact.us.path}
         When all fields on Contact Us form were completely filled-up with correct values <name> <email> <phone> <msg>

@@ -26,6 +26,7 @@ function getHeaderXpath(headerLink) {
       menu.expectedUrl = URL.HOME;
       break;
 
+    case ('Login'):
     case ('Log In'):
       menu.xpath = XPATH.LOGO;
       menu.expectedUrl = URL.HOME;
@@ -66,6 +67,7 @@ function getBtnXpath(btnName) {
       btn.waitElement = XPATH.TECH_SIGNUP_HEADERTEXT;
       break;
 
+    case('Client'):
     case ('Client Sign Up'):
       btn.xpath = XPATH.HOME_CLIENT_SIGNUP_BTN;
       btn.url = URL.CLIENT_SIGN_UP;
@@ -74,10 +76,10 @@ function getBtnXpath(btnName) {
   }
 
   return btn;
-}
+};
 
 function camelize(str) {
   return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(letter, index) {
     return index == 0 ? letter.toLowerCase() : letter.toUpperCase();
   }).replace(/\s+/g, '');
-}
+};

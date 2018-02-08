@@ -24,18 +24,20 @@ defineSupportCode(({ Given, Then, When }) => {
     let dataItem, element;
     for (let i = 0; i < dataSize; i++) {
       dataItem = table[i][0];
-      element = "@" + NAV_UTIL.camelize(dataItem);
+      element = headerObjects.getXpath(dataItem);
       // console.log(element);
       headerObjects.assert.visible(element);
     }
   });
 
-  Then(/^clicking on the (.*) link should navigate me to the correct page (.*)$/, (headerLink, pageUrl) => {
-    const menu = NAV_UTIL.getHeaderXpath(headerLink);
+  Then(/^clicking on the (.*) link should navigate me to the correct page (.*)$/, (headerLink, url) => {
+    let elementXpath = headerObjects.getXpath(headerLink);
+    let pageUrl = URL.getPublicPageUrl(url);
 
-    return client.click(menu.xpath)
-    .pause(1000)
-    .assert.urlEquals(CONFIG.APP_URL + menu.expectedUrl);
+    console.log(pageUrl);
+    return headerObjects.click(elementXpath);
+    client.pause(1000)
+      .assert.urlEquals(pageUrl);
   });
 
 });
