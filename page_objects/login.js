@@ -1,20 +1,17 @@
 module.exports = {
     url: "/login",
     commands: [
-        // {
-        //     isUserNavigatedToDashboard: (userPage, url) => {
-        //         switch(userPage) {
-        //             case("Tech"):
-        //             case("Tech User"):
-        //             case("Tech Dashboard"):
-                        
-        //         }
-        //     }
-        // }
+        {
+            
+        }
     ],
     elements: {
-        loginBtn: {
+        headerLoginBtn: {
             selector: ".//*[@id='app']//a[@name='login']",
+            locateStrategy: 'xpath'
+        },
+        loginForm: {
+            selector: ".//*[@id='app']//div[@class='box']",
             locateStrategy: 'xpath'
         },
         headerText: {
@@ -33,12 +30,16 @@ module.exports = {
             selector: ".//*[@id='app']//input[@type='checkbox']",
             locateStrategy: 'xpath'
         },
-        loginBtn: {
+        formLoginBtn: {
             selector: ".//*[@id='app']//button[@name='login']",
             locateStrategy: 'xpath'
         },
         signUpLink: {
             selector: ".//*[@id='app']//a[contains(.,'Sign up')]",
+            locateStrategy: 'xpath'
+        },
+        headerUserName: {
+            selector: ".//*[@id='app']//span[@class='user-name']",
             locateStrategy: 'xpath'
         }
     }

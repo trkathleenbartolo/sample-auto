@@ -1,45 +1,57 @@
 module.exports = {
     url: "/",
     commands: [
-       {
-        getXpath: (elementName) => {
-            let elements = {
-                xpath: ''
-            }
-            switch(elementName) {
-                case('Header'):
-                case('Header container'):
-                elements.xpath = '@headerCont';
-                break;
+        {
+            getXpath: (elementName) => {
+                let elements = {
+                    xpath: ''
+                }
+                switch (elementName) {
+                    case ('Header'):
+                    case ('Header container'):
+                        elements.xpath = '@headerCont';
+                        break;
 
-                case('TechDirect logo'):
-                elements.xpath = '@techDirectLogo';
-                break;
+                    case ('TechDirect logo'):
+                        elements.xpath = '@techDirectLogo';
+                        break;
 
-                case('About Us link'):
-                case('About Us'):
-                elements.xpath = '@aboutUsLink';
-                break;
+                    case ('About Us link'):
+                    case ('About Us'):
+                        elements.xpath = '@aboutUsLink';
+                        break;
 
-                case('How It Works link'):
-                case('How It Works'):
-                elements.xpath = '@howItWorksLink';
-                break;
+                    case ('How It Works link'):
+                    case ('How It Works'):
+                        elements.xpath = '@howItWorksLink';
+                        break;
 
-                case('Contact Us link'):
-                case('Contact Us'):
-                elements.xpath = '@contactUsLink';
-                break;
+                    case ('Contact Us link'):
+                    case ('Contact Us'):
+                        elements.xpath = '@contactUsLink';
+                        break;
 
-                case('Log In button'):
-                case('Log In'):
-                case('Login'):
-                elements.xpath = '@loginBtn';
-                break;
-            }
-            return elements.xpath;
+                    case ('Log In button'):
+                    case ('Log In'):
+                    case ('Login'):
+                        elements.xpath = '@loginBtn';
+                        break;
+                }
+                return elements.xpath;
+            },
+
+            // areElementsVisible: (dataTable) => {
+            //     let table = dataTable.rawTable;
+            //     let dataSize = table.length;
+            //     let element;
+
+            //     for (let i = 0; i < dataSize; i++) {
+            //         element = this.getXpath(table[i][0]);
+            //         // console.log(element);
+            //         this.assert.visible(element);
+            //     }
+            // }
         }
-       }
     ],
     elements: {
         headerCont: {

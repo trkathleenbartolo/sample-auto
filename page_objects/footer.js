@@ -1,34 +1,32 @@
 module.exports = {
     commands: [
         {
-            isElementVisible: function(elementName) {
+            getXpath: function(elementName) {
                 let elements = {
-                    xpath
+                    xpath: ''
                 }
                 switch(elementName) {
                     case('Footer'):
                     case('Footer container'):
-                    xpath = '@footerCont';
+                    elements.xpath = '@footerCont';
                     break;
                     
                     case('Copyright text'):
-                    xpath = '@copyrightText'
-                    break;
-
                     case('"Tech Direct" text'):
                     case("Release version text"):
-                    xpath = '@versionText'
+                    elements.xpath = '@versionText';
                     break;
                     
-                    case('All Rights Reserved" text'):
-                    xpath = ''
+                    case('"All Rights Reserved" text'):
+                    elements.xpath = '@allRightsText';
                     break;
 
+                    case('Privacy Policy'):
                     case('Privacy Policy link'):
-                    xpath = '@privacyPolicyLink'
-
+                    elements.xpath = '@privacyPolicyLink';
+                    break;
                 }
-                return this.assert.visible(xpath);
+                return elements.xpath;
             }
         }
     ],
@@ -37,12 +35,12 @@ module.exports = {
             selector: ".//*[@id='app']/footer",
             locateStrategy: 'xpath'
         },
-        copyrightText: {
+        versionText: {
             selector: ".//*[@id='app']//span[@class='copyright']",
             locateStrategy: 'xpath'
         },
-        versionText: {
-            selector: ".//*[@id='app']//span[contains(@class, version)]",
+        allRightsText: {
+            selector: ".//*[@id='app']//span[contains(@class,'version')]",
             locateStrategy: 'xpath'
         },
         privacyPolicyLink: {

@@ -1,6 +1,6 @@
 Feature: Footer
 
-    @footer
+    @smoketest
     Scenario Outline: Footer should always be visible at the bottom of all Public pages
         Given I am navigated to any TechDirect Public page
         Then Footer should always be visible at the bottom of the page
@@ -10,9 +10,9 @@ Feature: Footer
             | Release version text       |
             | "All Rights Reserved" text |
             | Privacy Policy link        |
-            | Social Media links         |
-        And clicking on the <footerLink> link should navigate me to the correct page <pageUrl>
+            # | Social Media links         |
+        And clicking on the <footerLink> link on Footer should navigate me to the correct page <pageUrl>
 
         Examples:
-            | footerLink     | pageUrl         |
-            | Privacy Policy | /privacy-policy |
+            | footerLink     | pageUrl                  |
+            | Privacy Policy | {td.privacy.policy.path} |

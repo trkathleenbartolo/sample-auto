@@ -1,5 +1,56 @@
 module.exports = {
     url: "/contact-us",
+    commands: [
+        {
+            getXpath: function(elementName) {
+                let elements = {
+                    xpath: ''
+                }
+                switch(elementName) {
+                    case('Header'):
+                    elements.xpath = '@header';
+                    break;
+
+                    case('Send us your message form'):
+                    elements.xpath = '@sendUsYourMessageForm';
+                    break;
+
+                    case('Contact Information section'):
+                    elements.xpath = '@contactInfoSection';
+                    break;
+
+                    case('Follow Us section'):
+                    elements.xpath = 'followUsSection';
+                    break;
+
+                    case('Footer'):
+                    elements.xpath = '@footer';
+                    break;
+
+                    case('Business Address'):
+                    elements.xpath = '@businessAddress';
+                    break;
+
+                    case('Support Email Address'):
+                    elements.xpath = '@supportEmailAddress';
+                    break;
+
+                    case('Facebook icon'):
+                    elements.xpath = '@facebookIcon';
+                    break;
+
+                    case('GooglePlus icon'):
+                    elements.xpath = '@googlePlusIcon';
+                    break;
+
+                    case('Twitter icon'):
+                    elements.xpath = '@twitterIcon';
+                    break;
+                }
+                return elements.xpath;
+            }
+        }
+    ],
     sections: {
         form: {
             selector: ".//*[@id='app']//div[@class='field']/div",
@@ -29,6 +80,10 @@ module.exports = {
             selector: ".//*[@id='app']/nav",
             locateStrategy: 'xpath'
         },
+        contactUsForm: {
+            selector: ".//*[@name='contact-form']",
+            locateStrategy: 'xpath'
+        },
         submitBtn: {
             selector: ".//*[@id='app']//button[@name='submit']",
             locateStrategy: 'xpath'
@@ -45,7 +100,7 @@ module.exports = {
             selector: ".//*[@id='app']//div[@class='box is-clearfix message-box']",
             locateStrategy: 'xpath'
         },
-        contactInformationSection: {
+        contactInfoSection: {
             selector: ".//*[@id='app']//div[@class='contact-details']",
             locateStrategy: 'xpath'
         },

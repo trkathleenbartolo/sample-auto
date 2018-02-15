@@ -1,6 +1,6 @@
 Feature: Header
 
-  @smoketest @test
+  @smoketest
   Scenario Outline: Header should always be visible at the top of all Public pages
     Given I am navigated to any TechDirect Public page
     Then header should always be visible at the top of the page
@@ -10,7 +10,7 @@ Feature: Header
       | How It Works link |
       | Contact Us link   |
       | Log In button     |
-    And clicking on the <headerLink> link should navigate me to the correct page <pageUrl>
+    And clicking on the <headerLink> link on Header should navigate me to the correct page <pageUrl>
 
     Examples:
       | headerLink      | pageUrl                |

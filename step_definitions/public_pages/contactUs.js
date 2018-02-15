@@ -4,6 +4,7 @@ const XPATH = require('../../util/xpath');
 const CONFIG = require('../../util/config');
 const URL = require('../../util/url');
 const NAV_UTIL = require('../../util/navigationUtil');
+const GLOBAL_CMD = require('../../util/globalCmd');
 
 client.useXpath();
 
@@ -11,44 +12,20 @@ defineSupportCode(({ Given, Then, When }) => {
     const contactUsObjects = client.page.contactUs();
     //Scenario: Elements on Contact Us page should be displayed correctly
     Then(/^Contact Us page should be displayed correctly$/, () => {
-        return client.assert.visible(XPATH.CONTACT_US_FORM);
+        return contactUsObjects.assert.visible('@contactUsForm');
     });
 
     Then(/^the following sections on Contact Us page should be visible:$/, (datatable) => {
-        let table = datatable.rawTable;
-        let dataSize = table.length;
-        let dataItem, element;
-        for (let i = 0; i < dataSize; i++) {
-            dataItem = table[i][0];
-            element = "@" + NAV_UTIL.camelize(dataItem);
-            // console.log(element);
-            contactUsObjects.assert.visible(element);
-        }
+        GLOBAL_CMD.areElementsOnDatatableVisible(datatable, contactUsObjects);
 
     });
 
     Then(/^on Contact Information section, the following information should be indicated:$/, (datatable) => {
-        let table = datatable.rawTable;
-        let dataSize = table.length;
-        let dataItem, element;
-        for (let i = 0; i < dataSize; i++) {
-            dataItem = table[i][0];
-            element = "@" + NAV_UTIL.camelize(dataItem);
-            // console.log(element);
-            contactUsObjects.assert.visible(element);
-        }
+        GLOBAL_CMD.areElementsOnDatatableVisible(datatable, contactUsObjects);
     });
 
     Then(/^on Follow Us section, the following elements should be visible:$/, (datatable) => {
-        let table = datatable.rawTable;
-        let dataSize = table.length;
-        let dataItem, element;
-        for (let i = 0; i < dataSize; i++) {
-            dataItem = table[i][0];
-            element = "@" + NAV_UTIL.camelize(dataItem);
-            // console.log(element);
-            contactUsObjects.assert.visible(element);
-        }
+        GLOBAL_CMD.areElementsOnDatatableVisible(datatable, contactUsObjects);
     });
 
     //Scenario Outline: Sending of Contact Us form should proceed when all fields are filled up with correct values and passed the captcha validation
@@ -68,7 +45,6 @@ defineSupportCode(({ Given, Then, When }) => {
 
     Then(/^I click on Submit button$/, () => {
         let contactUsPage = client.page.contactUs();
-        // let contactUsForm = contactUsPage.section;
 
         contactUsPage.waitForElementVisible("@captcha", 3000);
         return contactUsPage

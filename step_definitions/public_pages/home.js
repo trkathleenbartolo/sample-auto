@@ -4,23 +4,26 @@ const XPATH = require('../../util/xpath');
 const CONFIG = require('../../util/config');
 const URL = require('../../util/url');
 const NAV_UTIL = require('../../util/navigationUtil');
+const GLOBAL_CMD = require('../../util/globalCmd');
 
 client.useXpath();
 
 defineSupportCode(({ Given, Then, When }) => {
+    homeObjects = client.page.home();
     Given(/^I accessed the TechDirect Home page using correct url$/, () => {
-        return client.url(CONFIG.APP_URL);
+        return client.url(URL.DOMAIN);
       });
 
       Then(/^I should be navigated to the TechDirect Home page$/, () => {
-        return client.assert.urlEquals(CONFIG.APP_URL + URL.HOME);
+        return client.assert.urlEquals(URL.DOMAIN + URL.PUBLIC_PAGES.HOME);
       });
 
-      Then(/^clicking on the (.*) button should navigate me to the correct page (.*)$/, (signUpBtn, pageUrl) => {
-        const btn = NAV_UTIL.getBtnXpath(signUpBtn);
+      Then(/^the following elements on Home should be displayed correctly:$/, (datatable) => {
+        GLOBAL_CMD.areElementsOnDatatableVisible(datatable, homeObjects);
+      });
 
-        client.click(btn.xpath);
-        client.waitForElementVisible(btn.waitElement, 3000);
-        return client.assert.urlEquals(CONFIG.APP_URL + btn.url);
+      Then(/^clicking on the (.*) Sign Up button should navigate me to the correct Sign Up page (.*)$/, (userType, pageUrl) => {
+        homeObjects.clickSignUpBtn(userType);
+        client.assert.urlEquals(URL.getPublicPageUrl(pageUrl));
       });
 });

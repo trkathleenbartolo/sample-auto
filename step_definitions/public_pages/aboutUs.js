@@ -12,17 +12,17 @@ defineSupportCode(({ Given, Then, When }) => {
   const footerObjects = client.page.footer();
   const aboutUsObjects = client.page.aboutUs();
 
-  Then(/^I clicked on (.*) link on Header$/, (headerLink) => {
-    const menu = NAV_UTIL.getHeaderXpath(headerLink);
+  // Then(/^I clicked on (.*) link on Header$/, (headerLink) => {
+  //   const menu = NAV_UTIL.getHeaderXpath(headerLink);
 
-    return client.click(menu.xpath)
-      .pause(1000);
-  });
+  //   return client.click(menu.xpath)
+  //     .pause(1000);
+  // });
 
-  Given(/^I am navigated to the TechDirect (.*) page (.*)$/, (headerLink, url) => {
-    const menu = NAV_UTIL.getHeaderXpath(headerLink);
-    return client.assert.urlEquals(CONFIG.APP_URL + menu.expectedUrl);
-  });
+  // Given(/^I am navigated to the TechDirect (.*) page (.*)$/, (headerLink, url) => {
+  //   const menu = NAV_UTIL.getHeaderXpath(headerLink);
+  //   return client.assert.urlEquals(CONFIG.APP_URL + menu.expectedUrl);
+  // });
 
   Then(/^About Us page should be displayed correctly$/, () => {
     return true;
