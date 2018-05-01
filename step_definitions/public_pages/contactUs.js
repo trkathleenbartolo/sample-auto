@@ -10,7 +10,17 @@ client.useXpath();
 
 defineSupportCode(({ Given, Then, When }) => {
     const contactUsObjects = client.page.contactUs();
+    const headerObjects = client.page.header();
     //Scenario: Elements on Contact Us page should be displayed correctly
+    Given(/^I clicked on Contact Us link on Header$/, () => {
+        return headerObjects.click("@contactUsLink");
+    });
+
+    Given(/^I am navigated to the TechDirect Contact Us page (.*)$/, (url) => {
+        contactUsObjects.waitForElementVisible("@contactUsForm", 3000);
+        return client.assert.urlEquals(URL.getPublicPageUrl(url))
+    });
+
     Then(/^Contact Us page should be displayed correctly$/, () => {
         return contactUsObjects.assert.visible('@contactUsForm');
     });
@@ -30,10 +40,7 @@ defineSupportCode(({ Given, Then, When }) => {
 
     //Scenario Outline: Sending of Contact Us form should proceed when all fields are filled up with correct values and passed the captcha validation
     When(/^all fields on Contact Us form were completely filled-up with correct values (.*) (.*) (.*) (.*)$/, (name, email, phone, msg) => {
-        let contactUsPage = client.page.contactUs();
-        let contactUsForm = contactUsPage.section.form;
-
-        return contactUsForm.setValue("@nameField", name)
+        return contactUsObjects.setValue("@nameField", name)
             .setValue("@emailField", email)
             .setValue("@phoneField", phone)
             .setValue("@msgTxtArea", msg);
@@ -44,10 +51,8 @@ defineSupportCode(({ Given, Then, When }) => {
     });
 
     Then(/^I click on Submit button$/, () => {
-        let contactUsPage = client.page.contactUs();
-
-        contactUsPage.waitForElementVisible("@captcha", 3000);
-        return contactUsPage
+        contactUsObjects.waitForElementVisible("@captcha", 3000);
+        return contactUsObjects
             .click("@submitBtn")
             .assert.visible("@captchaValidation");
     });

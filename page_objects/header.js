@@ -39,7 +39,6 @@ module.exports = {
                 }
                 return elements.xpath;
             },
-
             // areElementsVisible: (dataTable) => {
             //     let table = dataTable.rawTable;
             //     let dataSize = table.length;
@@ -71,7 +70,7 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         contactUsLink: {
-            selector: "//*[@class='navbar-start']//*[@href='/contact-us']",
+            selector: "//*[@id='app']//a[@name='contactUs']",
             locateStrategy: 'xpath'
         },
         loginBtn: {

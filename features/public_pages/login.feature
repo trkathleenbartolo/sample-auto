@@ -15,7 +15,6 @@ Feature: Login
         And clicking on TechDirect logo should always navigate me to <userType> Dashboard page <url>
 
         Examples:
-
-            | userType | email                             | pass         | dropdownName              | url                      |
-            | Tech     | kathleen.bartolo+t1@tooltwist.com | Logmein+1234 | Hi Tester Kath!           | {td.tech.dashboard.path} |
-            | Client   | kathleen.bartolo+c1@tooltwist.com | Logmein+1234 | Hi Twist Resources, Inc.! | {td.client.search.path}  |
+            | userType | email                             | pass         | dropdownName  | url                      |
+            | Tech     | kathleen.bartolo+t1@tooltwist.com | Logmein+1234 | Hi Alexis!    | {td.tech.dashboard.path} |
+            | Client   | kathleen.bartolo+c1@tooltwist.com | Logmein+1234 | Hi Geek Test! | {td.client.search.path}  |

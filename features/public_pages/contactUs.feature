@@ -3,7 +3,7 @@ Feature: Public Pages - Contact Us
     Background:
         Given I am navigated to any TechDirect Public page
         And I clicked on Contact Us link on Header
-   
+
     Scenario: Elements on Contact Us page should be displayed correctly
         Given I am navigated to the TechDirect Contact Us page {td.contact.us.path}
         Then Contact Us page should be displayed correctly
@@ -31,5 +31,5 @@ Feature: Public Pages - Contact Us
         And form should be sent by support@techdirect.com to this receiver: admin@techdirect.com
 
         Examples:
-            | name       | email                          | phone      | msg                  |
-            | TRKathleen | kathleen.bartolo@tooltwist.com | 0283354600 | HiTechDirectSupport! |
+            | name       | email                          | phone     | msg                  |
+            | TRKathleen | kathleen.bartolo@tooltwist.com | 283354600 | HiTechDirectSupport! |

@@ -15,6 +15,7 @@ module.exports = {
         CONTACT_US: '/contact-us',
         PRIVACY_POLICY: '/privacy-policy',
         LOGIN: '/login',
+        FORGOT_PASSWORD: '/forgot-password/',
         
         TECH: {
             SIGN_UP: '/tech/initial-sign-up',
@@ -23,7 +24,9 @@ module.exports = {
 
         CLIENT: {
             SIGN_UP: '/client/sign-up',
-            DASHBOARD: '/client'
+            DASHBOARD: '/client',
+            FILTERED_SEARCH_RESULTS: '/client/search-result?q=GP%20Dynamics%3B%20&industry_experience=1,5,13&state=Queensland&postcode=4816&english_proficiency=Advanced&city=Paluma&rate_range_min=0&rate_range_max=25',
+            UNFILTERED_SEARCH_RESULTS: '/client/search-result?q=&industry_experience=&state=null&postcode=null&english_proficiency=null&city=&rate_range_min=null&rate_range_max=null'
         }
     },
 
@@ -32,6 +35,7 @@ module.exports = {
 function getPublicPageUrl(urlVar) {
     let url;
     switch (urlVar) {
+        case('Home page'):
         case('{td.home.url}'):
         url = this.DOMAIN + this.PUBLIC_PAGES.HOME;
         break;
@@ -57,10 +61,12 @@ function getPublicPageUrl(urlVar) {
         url = this.DOMAIN + this.PUBLIC_PAGES.PRIVACY_POLICY;
         break;
 
+        case ('Initial Tech Sign up page'):
         case('{td.tech.signup.path}'):
         url = this.DOMAIN + this.PUBLIC_PAGES.TECH.SIGN_UP;
         break;
 
+        case ('Client Sign Up page'):
         case('{td.client.signup.path}'):
         url = this.DOMAIN + this.PUBLIC_PAGES.CLIENT.SIGN_UP;
         break;
@@ -71,6 +77,14 @@ function getPublicPageUrl(urlVar) {
 
         case('{td.tech.dashboard.path}'):
         url = this.DOMAIN + this.PUBLIC_PAGES.TECH.DASHBOARD;
+        break;
+
+        case('{td.forgot.pass.page.path}'):
+        url = this.DOMAIN + this.PUBLIC_PAGES.FORGOT_PASSWORD;
+        break;
+
+        default:
+        console.log('Url being visited is not found.');
         break;
     }
     return url;
@@ -87,6 +101,7 @@ function getTechPageUrl(urlVar) {
         url = this.DOMAIN + this.PUBLIC_PAGES.TECH.DASHBOARD;
         break;
     }
+    return url;
 };
 
 function getClientPageUrl(urlVar) {
@@ -96,9 +111,20 @@ function getClientPageUrl(urlVar) {
         url = this.DOMAIN + this.PUBLIC_PAGES.CLIENT.SIGN_UP;
         break;
 
+        case('{td.client.search.page.path}'):
         case('{td.client.search.path}'):
         url = this.DOMAIN + this.PUBLIC_PAGES.CLIENT.DASHBOARD;
         break;
+
+        case('{td.client.search.results.page.path}'):
+        case('{td.client.search.results.path}'):
+        url = this.DOMAIN + this.PUBLIC_PAGES.CLIENT.FILTERED_SEARCH_RESULTS;
+        break;
+
+        case('{td.client.unfiltered.search.results.path}'):
+        url = this.DOMAIN + this.PUBLIC_PAGES.CLIENT.UNFILTERED_SEARCH_RESULTS;
+        break;
     }
+    return url;
 };
 

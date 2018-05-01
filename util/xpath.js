@@ -34,4 +34,8 @@ module.exports = {
 
   //CLIENT SIGN UP
   CLIENT_SIGNUP_HEADERTEXT: ".//*[@id='app']//h1[.='Client Sign Up']",
+
+  //LOGIN 
+  EMAIL_ADDRESS_FIELD: "#userID",
+  PASSWORD_FIELD: "#userPassword"
 };

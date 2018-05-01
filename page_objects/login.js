@@ -1,10 +1,5 @@
 module.exports = {
     url: "/login",
-    commands: [
-        {
-            
-        }
-    ],
     elements: {
         headerLoginBtn: {
             selector: ".//*[@id='app']//a[@name='login']",
@@ -19,11 +14,13 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         emailAddressField: {
-            selector: ".//*[@id='app']//input[@name='email']",
+            // selector: "#userID"
+            selector: ".//*[@id='userID']",
             locateStrategy: 'xpath'
         },
         passwordField: {
-            selector: ".//*[@id='app']//input[@type='password']",
+            // selector: "#userPassword"
+            selector: ".//*[@id='userPassword']",
             locateStrategy: 'xpath'
         },
         rememberMeCheckbox: {

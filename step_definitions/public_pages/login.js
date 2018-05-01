@@ -1,6 +1,5 @@
 const { client } = require('nightwatch-cucumber');
 const { defineSupportCode } = require('cucumber');
-const XPATH = require('../../util/xpath');
 const CONFIG = require('../../util/config');
 const URL = require('../../util/url');
 
@@ -22,12 +21,14 @@ defineSupportCode(({ Given, Then, When }) => {
 
 
   When(/^I log in as (.*) using correct credentials (.*) (.*)$/, (usertype, email, pass) => {
-    return loginPageObjects.setValue("@emailAddressField", email)
-      .setValue("@passwordField", pass);
+    loginPageObjects.setValue("@emailAddressField", email)
+    .setValue("@passwordField", pass);
+
+    return loginPageObjects.click("@formLoginBtn");
   });
 
   Then(/^I click on Login button$/, () => {
-    return loginPageObjects.click("@formLoginBtn");
+    
   });
 
   Then(/^I should be successfully logged in as (.*)$/, (usertype) => {

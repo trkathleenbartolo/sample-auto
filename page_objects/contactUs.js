@@ -51,30 +51,6 @@ module.exports = {
             }
         }
     ],
-    sections: {
-        form: {
-            selector: ".//*[@id='app']//div[@class='field']/div",
-            locateStrategy: 'xpath',
-            elements: {
-                nameField: {
-                    selector: "//*[@name='contact-form']//*[@name='name']",
-                    locateStrategy: 'xpath'
-                },
-                emailField: {
-                    selector: "//*[@name='contact-form']//*[@name='email']",
-                    locateStrategy: 'xpath'
-                },
-                phoneField: {
-                    selector: "//*[@name='contact-form']//*[@name='phone']",
-                    locateStrategy: 'xpath'
-                },
-                msgTxtArea: {
-                    selector: "//*[@name='contact-form']//*[@name='message']",
-                    locateStrategy: 'xpath'
-                }
-            }
-        }
-    },
     elements: {
         header: {
             selector: ".//*[@id='app']/nav",
@@ -98,6 +74,22 @@ module.exports = {
         },
         sendUsYourMessageForm: {
             selector: ".//*[@id='app']//div[@class='box is-clearfix message-box']",
+            locateStrategy: 'xpath'
+        },
+        nameField: {
+            selector: "//*[@name='contact-form']//*[@name='name']",
+            locateStrategy: 'xpath'
+        },
+        emailField: {
+            selector: "//*[@name='contact-form']//*[@name='email']",
+            locateStrategy: 'xpath'
+        },
+        phoneField: {
+            selector: ".//*[@id='app']//div[2]/input",
+            locateStrategy: 'xpath'
+        },
+        msgTxtArea: {
+            selector: "//*[@name='contact-form']//*[@name='message']",
             locateStrategy: 'xpath'
         },
         contactInfoSection: {
