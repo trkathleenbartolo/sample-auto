@@ -16,7 +16,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "chromedriver": "^2.32.3",
+    "chromedriver": "^2.38.2",
     "cucumber": "^3.0.3",
     "cucumber-pretty": "^0.0.5",
     "geckodriver": "^1.10.0",
