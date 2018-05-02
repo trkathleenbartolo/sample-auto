@@ -1,18 +1,12 @@
 const TEST_DATA = require('../test-data');
 
 module.exports = {
-  //Modules to get environment and user credentials
-  getEnvironment,
-  getUserTypeData,
+  APP_URL: TEST_DATA.GET_ENVI().domain,
 
-  // APP_URL: this.getEnvironment().domain
-  APP_URL: "http://dev.tech-direct.com"
-};
+  TECH_USERNAME: TEST_DATA.GET_ENVI().tech.email,
+  TECH_PASSWORD: TEST_DATA.GET_ENVI().tech.password,
 
-function getEnvironment() {
-  return JSON.parse(TEST_DATA.environment);
-};
-
-function getUserTypeData(userType) {
-  return this.getEnvironment.userType;
+  CLIENT_USERNAME: TEST_DATA.GET_ENVI().client.email,
+  CLIENT_PASSWORD: TEST_DATA.GET_ENVI().client.password
+  
 };

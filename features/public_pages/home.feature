@@ -1,6 +1,6 @@
 Feature: Public Pages - Home
 
-    @smoketest
+    @smoketest @test
     Scenario Outline: I should be navigated to TechDirect Home page once correct URL was accessed
         Given I accessed the TechDirect Home page using correct url
         Then I should be navigated to the TechDirect Home page

@@ -23,7 +23,7 @@ Feature: Client Search
         # | Left and Right Shevron buttons |
         And clicking on the View Profile button again should close the Tech Profile popover
 
-    @smoketest @test
+    @smoketest
     Scenario: I should be able to get unfiltered search results when I emptied the Skillset search bar and make the Advanced options unfiltered
         Given I am navigated to the Client Search Results page {td.client.search.results.page.path}
         When I leave the Skillset Search bar blank
