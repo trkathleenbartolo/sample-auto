@@ -1,32 +1,36 @@
 module.exports = {
     url: "/tech/initial-sign-up",
-    sections: {
+    elements: {
         initialForm: {
             selector: ".//*[@id='app']//input",
             locateStrategy: 'xpath',
-            elements: {
-                emailField: {
-                    selector: ".//*[@name='emailAdress']",
-                    locateStrategy: 'xpath'
-                },
-                firstNameField: {
-                    selector: ".//*[@name='firstName']",
-                    locateStrategy: 'xpath'
-                },
-                lastNameField: {
-                    selector: ".//*[@name='lastName']",
-                    locateStrategy: 'xpath'
-                },
-                termsCheckbox: {
-                    selector: ".//*[@type='checkbox']",
-                    locateStrategy: 'xpath'
-                }
-            }
-        }
-    },
-    elements: {
+        },
+        emailField: {
+            selector: ".//*[@name='emailAdress']",
+            locateStrategy: 'xpath'
+        },
+        firstNameField: {
+            selector: ".//*[@name='firstName']",
+            locateStrategy: 'xpath'
+        },
+        lastNameField: {
+            selector: ".//*[@name='lastName']",
+            locateStrategy: 'xpath'
+        },
+        termsCheckbox: {
+            selector: '//*[@id="app"]/section/div/div/form/div[4]/label/label/span[1]',
+            locateStrategy: 'xpath'
+        },
         termsLink: {
-            selector: ".//*[@id='app']//a[@class='terms']",
+            selector: '//*[@id="app"]/section/div/div/form/div[4]/label/a',
+            locateStrategy: 'xpath'
+        },
+        pAgreementCheckbox: {
+            selector: '//*[@id="app"]/section/div/div/form/div[5]/label/label/span[1]',
+            locateStrategy: 'xpath'
+        },
+        pAgreementLink: {
+            selector: '//*[@id="app"]/section/div/div/form/div[5]/label/a',
             locateStrategy: 'xpath'
         },
         captcha: {
@@ -45,21 +49,6 @@ module.exports = {
             selector: ".//*[@id='app']//a[contains(.,'Log In')]",
             locateStrategy: 'xpath'
         },
-        emailField: {
-            selector: ".//*[@name='emailAdress']",
-            locateStrategy: 'xpath'
-        },
-        firstNameField: {
-            selector: ".//*[@name='firstName']",
-            locateStrategy: 'xpath'
-        },
-        lastNameField: {
-            selector: ".//*[@name='lastName']",
-            locateStrategy: 'xpath'
-        },
-        termsCheckbox: {
-            selector: ".//*[@type='checkbox']",
-            locateStrategy: 'xpath'
-        }
+        
     }
 };

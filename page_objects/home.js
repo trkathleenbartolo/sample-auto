@@ -9,16 +9,36 @@ module.exports = {
                     xpath: ''
                 }
                 switch (elementName) {
-                    case ('Header'):
+                    case ('Public Header'):
                         elements.xpath = '@header';
                         break;
 
-                    case ('H1 Header text'):
+                    case ('Client Info box'):
+                        elements.xpath = '@clientInfoBox';
+                        break;
+
+                    case ('Tech Info box'):
+                        elements.xpath = '@techInfoBox';
+                        break;
+
+                    case ('Headline text'):
                         elements.xpath = '@h1HeaderTxt';
                         break;
 
-                    case ('Supporting Header text'):
+                    case ('Subheadline text'):
                         elements.xpath = '@supportingHeaderTxt';
+                        break;
+
+                    case ('Tech Direct logo'):
+                        elements.xpath = '@miniTdLogo';
+                        break;
+
+                    case ('As a Business divider'):
+                        elements.xpath = '@asBusinessDiv';
+                        break;
+
+                    case ('As a Consultant divider'):
+                        elements.xpath = '@asConsultantDiv';
                         break;
 
                     case ('Client Sign Up button'):
@@ -31,6 +51,30 @@ module.exports = {
 
                     case ('Footer'):
                         elements.xpath = '@footer';
+                        break;
+
+                    case ('If you’re HIRING header text'):
+                        elements.xpath = '@clientInfoHeaderTxt';
+                        break;
+
+                    case ('Find a skilled IT consultant now subheader text'):
+                        elements.xpath = '@clientInfoSubheaderTxt';
+                        break;
+
+                    case ('Client Sign up button'):
+                        elements.xpath = '@clientInfoSignUpBtn';
+                        break;
+
+                    case ('If you’re an IT CONSULTANT header text'):
+                        elements.xpath = '@techInfoHeaderTxt';
+                        break;
+
+                    case ('Join up and get approached for work subheader text'):
+                        elements.xpath = '@techInfoSubheaderTxt';
+                        break;
+
+                    case ('Tech Sign up button'):
+                        elements.xpath = '@techInfoSignUpBtn';
                         break;
 
                 }
@@ -53,27 +97,34 @@ module.exports = {
                 this.click(btnElem.xpath)
                     .waitForElementVisible('@captcha', 5000);
             },
-            getXpathToNavigateToPublicPages: (pageName) => {
+            clickSignUpBtnsOnHome: (btnName) => {
                 let elements = {
                     xpath: '',
                     toWait: ''
                 }
-                switch (pageName) {
-                    case ('Home page'):
-                        elements.xpath = '@techDirectLogo';
-                        elements.toWait = '@h1HeaderTxt';
-                        break;
-                    case ('Initial Tech Sign up page'):
-                        elements.xpath = '@techSignUpBtn';
+                switch (btnName) {
+                    case ('Tech Info box > Sign Up'):
+                        elements.xpath = '@techInfoSignUpBtn';
                         elements.toWait = '@captcha';
                         break;
-                    case ('Client Sign Up page'):
-                        elements.xpath = '@clientSignUpBtn';
+
+                    case ('Client Info box > Sign Up'):
+                        elements.xpath = '@clientInfoSignUpBtn';
+                        elements.toWait = '@captcha';
+                        break;
+
+                    case ('As a Consultant divider > Sign Up'):
+                        elements.xpath = '@divTechSignUpBtn';
+                        elements.toWait = '@captcha';
+                        break;
+
+                    case ('As a Business divider > Sign Up'):
+                        elements.xpath = '@divClientSignUpBtn';
                         elements.toWait = '@captcha';
                         break;
                 }
                 return elements;
-            }
+            },
         }
     ],
     elements: {
@@ -85,20 +136,72 @@ module.exports = {
             selector: ".//*[@id='app']//img[@class='techD-logo']",
             locateStrategy: 'xpath'
         },
+        clientInfoBox: {
+            selector: '//*[@id="app"]/section/div[1]/div/div[1]',
+            locateStrategy: 'xpath'
+        },
+        techInfoBox: {
+            selector: '//*[@id="app"]/section/div[1]/div/div[2]',
+            locateStrategy: 'xpath'
+        },
         h1HeaderTxt: {
-            selector: ".//*[@id='app']//h1",
+            selector: '//*[@id="app"]/section/div[2]/h1',
             locateStrategy: 'xpath'
         },
         supportingHeaderTxt: {
-            selector: ".//*[@id='app']/section//p",
+            selector: '//*[@id="app"]/section/div[2]/h3',
             locateStrategy: 'xpath'
         },
-        clientSignUpBtn: {
-            selector: ".//*[@id='clientSignUp']",
+        miniTdLogo: {
+            selector: '//*[@id="app"]/section/div[2]/img',
             locateStrategy: 'xpath'
         },
-        techSignUpBtn: {
-            selector: ".//*[@id='techSignUp']",
+        asBusinessDiv: {
+            selector: '//*[@id="app"]/section/div[3]',
+            locateStrategy: 'xpath'
+        },
+        joinBusinessDiv: {
+            selector: '//*[@id="app"]/section/section[1]',
+            locateStrategy: 'xpath'
+        },
+        asConsultantDiv: {
+            selector: '//*[@id="app"]/section/div[4]',
+            locateStrategy: 'xpath'
+        },
+        joinConsultantDiv: {
+            selector: '//*[@id="app"]/section/section[2]',
+            locateStrategy: 'xpath'
+        },
+        clientInfoHeaderTxt: {
+            selector: '//*[@id="app"]/section/div[1]/div/div[1]/div/h2[1]',
+            locateStrategy: 'xpath'
+        },
+        clientInfoSubheaderTxt: {
+            selector: '//*[@id="app"]/section/div[1]/div/div[1]/div/h2[2]',
+            locateStrategy: 'xpath'
+        },
+        techInfoHeaderTxt: {
+            selector: '//*[@id="app"]/section/div[1]/div/div[2]/div/h2[1]',
+            locateStrategy: 'xpath'
+        },
+        techInfoSubheaderTxt: {
+            selector: '//*[@id="app"]/section/div[1]/div/div[2]/div/h2[2]',
+            locateStrategy: 'xpath'
+        },
+        clientInfoSignUpBtn: {
+            selector: '//*[@id="clientSignUp"]',
+            locateStrategy: 'xpath'
+        },
+        techInfoSignUpBtn: {
+            selector: '//*[@id="techSignUp"]',
+            locateStrategy: 'xpath'
+        },
+        divClientSignUpBtn: {
+            selector: '//*[@id="app"]/section/section[1]/div/button',
+            locateStrategy: 'xpath'
+        },
+        divTechSignUpBtn: {
+            selector: '//*[@id="app"]/section/section[2]/div/button',
             locateStrategy: 'xpath'
         },
         captcha: {

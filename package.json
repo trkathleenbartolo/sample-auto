@@ -22,7 +22,7 @@
     "geckodriver": "^1.10.0",
     "nightwatch": "^0.9.16",
     "nightwatch-cucumber": "^8.2.9",
-    "npm": "^5.8.0",
+    "npm": "^5.10.0",
     "phantomjs-prebuilt": "^2.1.16",
     "properties": "^1.2.1",
     "selenium-server": "^3.7.1"
