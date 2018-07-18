@@ -50,7 +50,7 @@ defineSupportCode(({ Given, Then, When }) => {
         
     });
 
-    Then(/^the following success message should be visible in the prompted popup:$/, () => {
+    Then(/^the following success message should be visible in the prompted popup:$/, (message) => {
         
     });
 

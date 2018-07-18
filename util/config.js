@@ -16,6 +16,12 @@ module.exports = {
 };
 
 function returnConfigData(testDataName) {
-  let objName = testDataName.replace(/[{}]/g, '');
-  return this.objName;
+  let objName;
+
+  switch (testDataName) {
+    case ('{td.tech.email.new}'):
+    objName = this.TECH_REG_EMAIL;
+    break;
+  }
+  return objName;
 }

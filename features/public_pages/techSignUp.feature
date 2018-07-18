@@ -26,5 +26,5 @@ Feature: Tech Sign up: Initial
 
         Examples:
 
-            | email            | firstName | lastName |
-            | {TECH_REG_EMAIL} | Tester    | Kathleen |
+            | email               | firstName | lastName |
+            | {td.tech.email.new} | Tester    | Kathleen |
