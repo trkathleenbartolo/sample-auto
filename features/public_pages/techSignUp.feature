@@ -5,7 +5,7 @@ Feature: Tech Sign up: Initial
         Given I am navigated to the TechDirect Home page
         And I clicked on Tech Sign Up button
 
-    @smoketest @test
+    @smoketest
     Scenario Outline: Signing up as Tech should proceed when all fields are filled up with correct values and passed the captcha validation
         Given I am navigated to the TechDirect Initial Tech Sign Up page {td.tech.signup.path}
         When all fields on Initial Tech Sign Up form were completely filled-up with correct values <email> <firstName> <lastName>

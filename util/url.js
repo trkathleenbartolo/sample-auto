@@ -52,6 +52,7 @@ function getPublicPageUrl(urlVar) {
             url = this.DOMAIN + this.PUBLIC_PAGES.CONTACT_US;
             break;
 
+        case ('Login page'):
         case ('{td.login.page.path}'):
         case ('{td.login.url}'):
             url = this.DOMAIN + this.PUBLIC_PAGES.LOGIN;
@@ -97,12 +98,9 @@ function getPublicPageUrl(urlVar) {
 function getTechPageUrl(urlVar) {
     let url;
     switch (urlVar) {
-        case ('{td.tech.signup.path}'):
-            url = this.DOMAIN + this.PUBLIC_PAGES.TECH.SIGN_UP;
-            break;
-
+        case ('Tech Dashboard'):
         case ('{td.tech.dashboard.path}'):
-            url = this.DOMAIN + this.PUBLIC_PAGES.TECH.DASHBOARD;
+            url = this.DOMAIN + this.TECH.DASHBOARD;
             break;
     }
     return url;

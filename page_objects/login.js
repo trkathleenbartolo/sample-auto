@@ -1,19 +1,21 @@
+const URL = require('../util/url');
+
 module.exports = {
-    url: "/login",
+    url: URL.getPublicPageUrl('Login page'),
     elements: {
         headerLoginBtn: {
             selector: ".//*[@id='app']//a[@name='login']",
             locateStrategy: 'xpath'
         },
         loginForm: {
-            selector: ".//*[@id='app']//div[@class='box']",
+            selector: '//*[@id="app"]/section/div',
             locateStrategy: 'xpath'
         },
         headerText: {
             selector: ".//*[@id='app']//h1",
             locateStrategy: 'xpath'
         },
-        emailAddressField: {
+        emailField: {
             // selector: "#userID"
             selector: ".//*[@id='userID']",
             locateStrategy: 'xpath'
@@ -37,6 +39,10 @@ module.exports = {
         },
         headerUserName: {
             selector: ".//*[@id='app']//span[@class='user-name']",
+            locateStrategy: 'xpath'
+        },
+        loadingBar: {
+            selector: '/html/body/div[2]/div[1]',
             locateStrategy: 'xpath'
         }
     }

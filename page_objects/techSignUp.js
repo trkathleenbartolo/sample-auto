@@ -18,19 +18,27 @@ module.exports = {
             locateStrategy: 'xpath'
         },
         termsCheckbox: {
-            selector: '//*[@id="app"]/section/div/div/form/div[4]/label/label/span[1]',
+            selector: '//*[@id="app"]/section/div/div/form/div[4]/label/label',
             locateStrategy: 'xpath'
         },
         termsLink: {
             selector: '//*[@id="app"]/section/div/div/form/div[4]/label/a',
             locateStrategy: 'xpath'
         },
+        termsValidation: {
+            selector: '//*[@id="app"]/section/div/div/form/div[4]/label/label/input',
+            locateStrategy: 'xpath'
+        },
         pAgreementCheckbox: {
-            selector: '//*[@id="app"]/section/div/div/form/div[5]/label/label/span[1]',
+            selector: '//*[@id="app"]/section/div/div/form/div[5]/label/label',
             locateStrategy: 'xpath'
         },
         pAgreementLink: {
             selector: '//*[@id="app"]/section/div/div/form/div[5]/label/a',
+            locateStrategy: 'xpath'
+        },
+        pAgreementValidation: {
+            selector: '//*[@id="app"]/section/div/div/form/div[5]/label/label/input',
             locateStrategy: 'xpath'
         },
         captcha: {

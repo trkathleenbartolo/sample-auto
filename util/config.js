@@ -22,6 +22,14 @@ function returnConfigData(testDataName) {
     case ('{td.tech.email.new}'):
     objName = this.TECH_REG_EMAIL;
     break;
+
+    case ('{td.tech.email}'):
+    objName = this.TECH_USERNAME;
+    break;
+
+    case ('{td.tech.pass}'):
+    objName = this.TECH_PASSWORD;
+    break;
   }
   return objName;
 }

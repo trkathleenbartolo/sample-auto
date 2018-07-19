@@ -19,51 +19,51 @@ defineSupportCode(({ Given, Then, When }) => {
   });
 
   Then(/^the following elements on Home should be displayed correctly:$/, (datatable) => {
-    return homeObjects.waitForElementVisible('@techInfoBox', 3000, () => {
+    return homeObjects.waitForElementVisible('@techInfoBox', 3000, false, () => {
       GLOBAL_CMD.areElementsOnDatatableVisible(datatable, homeObjects);
     })
   });
 
   Then(/^on Client Info box, the following elements are present:$/, (datatable) => {
-    return homeObjects.waitForElementVisible('@clientInfoBox', 3000, () => {
+    return homeObjects.waitForElementVisible('@clientInfoBox', 3000, false, () => {
       GLOBAL_CMD.areElementsOnDatatableVisible(datatable, homeObjects);
     })
   });
 
   Then(/^on Tech Info box, the following elements are present:$/, (datatable) => {
-    return homeObjects.waitForElementVisible('@techInfoBox', 3000, () => {
+    return homeObjects.waitForElementVisible('@techInfoBox', 3000, false, () => {
       GLOBAL_CMD.areElementsOnDatatableVisible(datatable, homeObjects);
     })
   });
 
   Then(/^on As a Business divider, client-related icons and text are displayed correctly$/, () => {
-    return homeObjects.waitForElementVisible('@asBusinessDiv', 3000, () => {
+    return homeObjects.waitForElementVisible('@asBusinessDiv', 3000, false, () => {
       homeObjects.assert.visible('@asBusinessDiv', 'As a Business divider is visible.');
     })
   });
 
   Then(/^Join Now for Free divider and Client Sign up button are present$/, () => {
-    return homeObjects.waitForElementVisible('@joinBusinessDiv', 3000, () => {
+    return homeObjects.waitForElementVisible('@joinBusinessDiv', 3000, false, () => {
       homeObjects.assert.visible('@joinBusinessDiv', 'Join Us for Business divider is visible.');
       homeObjects.assert.visible('@divClientSignUpBtn', 'Business Sign Up button is visible.');
     })
   });
 
   Then(/^on As a Consultant divider, tech-related icons and text are displayed correctly$/, () => {
-    return homeObjects.waitForElementVisible('@asConsultantDiv', 3000, () => {
+    return homeObjects.waitForElementVisible('@asConsultantDiv', 3000, false, () => {
       homeObjects.assert.visible('@asConsultantDiv', 'As a Consultant divider is visible.');
     })
   });
 
   Then(/^Join Now for Free divider and Tech Sign up button are present$/, () => {
-    return homeObjects.waitForElementVisible('@joinConsultantDiv', 3000, () => {
+    return homeObjects.waitForElementVisible('@joinConsultantDiv', 3000, false, () => {
       homeObjects.assert.visible('@joinConsultantDiv', 'Join Us for Consultant divider is visible.');
       homeObjects.assert.visible('@divTechSignUpBtn', 'Consultant Sign Up button is visible.');
     })
   });
 
   Then(/^clicking on the following Sign Up buttons should navigate me to the correct page:$/, (datatable) => {
-    return homeObjects.waitForElementVisible('@techInfoSignUpBtn', 3000, () => {
+    return homeObjects.waitForElementVisible('@techInfoSignUpBtn', 3000, false, () => {
       GLOBAL_CMD.areSignUpBtnsOnHomeFunctional(datatable, homeObjects);
     })
   });
